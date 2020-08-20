@@ -28,22 +28,21 @@ namespace Bookswagon.Page
 
         [FindsBy(How = How.Name, Using = "ctl00$phBody$SignIn$txtPassword")]
 
-        public IWebElement bookspassword;
+        public IWebElement bookpassword;
 
         [FindsBy(How = How.Name, Using = "ctl00$phBody$SignIn$btnLogin")]
 
         public IWebElement loginbutton;
        
 
-        public void AccountLogin()
+        public void AccountLogin(string email, string bookspassword)
         {
             loginoption.Click();
             Thread.Sleep(3000);
-            mail.SendKeys("rajraval017@gmail.com");
-            bookspassword.SendKeys("Booksraj@7");
+            mail.SendKeys(email);
+            bookpassword.SendKeys(bookspassword);
             loginbutton.Click();
             Thread.Sleep(3000);
-
         }
 
    }

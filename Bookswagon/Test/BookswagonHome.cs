@@ -1,4 +1,5 @@
 ﻿using Bookswagon.Base;
+using Bookswagon.Data;
 using Bookswagon.Page;
 using NUnit.Framework;
 using System;
@@ -11,11 +12,12 @@ namespace Bookswagon.Test
 {
    public class BookswagonHome : BooksWagon
     {
+        UserData data = new UserData();
         [Test]
         public void BookswagonLogin()
         {
             var login = new Login(driver);
-            login.AccountLogin();
+            login.AccountLogin(data.email,data.bookspassword);
         }
 
    }
