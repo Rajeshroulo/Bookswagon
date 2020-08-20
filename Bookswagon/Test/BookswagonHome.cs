@@ -11,58 +11,35 @@ namespace Bookswagon.Test
         UserData data = new UserData();
         [Test,Order(1)]
         public void BookswagonLogin()
-        {
-            try
-            {
+        {           
+             var login = new Login(driver);
+             login.AccountLogin(data.email, data.bookspassword);
 
-                var login = new Login(driver);
-                login.AccountLogin(data.email, data.bookspassword);
-
-                Assert.AreEqual("TextBooks", login.TextBooks());
-
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
+             Assert.AreEqual("TextBooks", login.TextBooks());           
         }
 
         [Test,Order(2)]
         public void SearchBooks()
         {
-            try
-            {
+             var search = new BookSearch(driver);
+             search.BookSearching();
 
-                var search = new BookSearch(driver);
-                search.BookSearching();
-
-                string text = "Wings of Fire";
-                Assert.AreEqual(text, search.BookTitle());
-
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-            }
+             string text = "Wings of Fire";
+             Assert.AreEqual(text, search.BookTitle());                       
         }
 
         [Test,Order(3)]
         public void AddtoCart()
+        {           
+             var cart = new MyCart(driver);
+             cart.ShoppingCart();           
+        }
+
+        [Test,Order(4)]
+        public void DeliveryAddress()
         {
-            try
-            {
-
-                var cart = new MyCart(driver);
-                cart.ShoppingCart();
-
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-
-            }
-
+            var address = new Address(driver);
+            address.ShippingAddress();
         }
 
     }
