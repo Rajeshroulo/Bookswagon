@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="Base\BooksWagon.cs" />
     <Compile Include="Data\UserData.cs" />
+    <Compile Include="Page\BookSearch.cs" />
     <Compile Include="Page\Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

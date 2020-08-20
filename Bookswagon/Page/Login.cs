@@ -33,7 +33,12 @@ namespace Bookswagon.Page
         [FindsBy(How = How.Name, Using = "ctl00$phBody$SignIn$btnLogin")]
 
         public IWebElement loginbutton;
-       
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'TextBooks')]")]
+
+        public IWebElement textBooks;
+
+
 
         public void AccountLogin(string email, string bookspassword)
         {
@@ -45,5 +50,9 @@ namespace Bookswagon.Page
             Thread.Sleep(3000);
         }
 
+        public string TextBooks()
+        {
+            return textBooks.Text;
+        }
    }
 }
