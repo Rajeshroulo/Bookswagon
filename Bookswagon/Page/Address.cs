@@ -52,6 +52,20 @@ namespace Bookswagon.Page
 
         public IWebElement save;
 
+        [FindsBy(How = How.XPath, Using = "//input[@class='btn-red']")]
+
+        public IWebElement next;
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Logout')]")]
+
+        public IWebElement logout;
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'TextBooks')]")]
+
+        public IWebElement books;
+
+
+
         public void ShippingAddress()
         {
             Thread.Sleep(3000);
@@ -60,11 +74,25 @@ namespace Bookswagon.Page
             addres.SendKeys(ConfigurationManager.AppSettings["Address"]);
             SelectElement element = new SelectElement(state);
             element.SelectByText("Andhra Pradesh");
+            city.SendKeys(ConfigurationManager.AppSettings["City"]);
             pin.SendKeys(ConfigurationManager.AppSettings["Pin"]);
             mobile.SendKeys(ConfigurationManager.AppSettings["Mobile"]);
             save.Click();
+            Thread.Sleep(4000);
         }
 
+        public void Payment()
+        {
+            next.Click();
+            Thread.Sleep(6000);
+            logout.Click();
+            Thread.Sleep(2000);
 
+        }
+
+        public string Books()
+        {
+            return books.Text;
+        }
     }
 }

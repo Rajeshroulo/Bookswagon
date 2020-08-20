@@ -40,6 +40,10 @@ namespace Bookswagon.Test
         {
             var address = new Address(driver);
             address.ShippingAddress();
+            address.Payment();
+
+            string expected = "TextBooks";
+            Assert.AreEqual(expected, address.Books());
         }
 
     }
