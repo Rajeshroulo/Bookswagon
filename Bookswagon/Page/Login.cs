@@ -1,16 +1,11 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Bookswagon.Page
 {
-   public class Login
-   {
+    public class Login
+    {
         public IWebDriver driver;
         public Login(IWebDriver driver)
         {
@@ -54,5 +49,5 @@ namespace Bookswagon.Page
         {
             return textBooks.Text;
         }
-   }
+    }
 }

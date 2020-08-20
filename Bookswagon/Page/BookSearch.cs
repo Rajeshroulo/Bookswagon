@@ -1,16 +1,11 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Bookswagon.Page
 {
-   public class BookSearch
-   {
+    public class BookSearch
+    {
         public IWebDriver driver;
         public BookSearch(IWebDriver driver)
         {
@@ -33,7 +28,7 @@ namespace Bookswagon.Page
 
         public void BookSearching()
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
             search.SendKeys("Wings of fire");
             searchButton.Click();
             Thread.Sleep(3000);
@@ -44,5 +39,5 @@ namespace Bookswagon.Page
             return wings.Text;
         }
 
-   }
+    }
 }
