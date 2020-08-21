@@ -11,7 +11,6 @@ namespace Bookswagon.Page
 {
    public class MyCart
    {
-
         public IWebDriver driver;
         public MyCart(IWebDriver driver)
         {
@@ -20,23 +19,21 @@ namespace Bookswagon.Page
         }
 
         [FindsBy(How = How.XPath, Using = "//div[1]//div[4]//div[5]//a[1]//input[1]")]
-
         public IWebElement buy;
 
         [FindsBy(How = How.XPath, Using = "//iframe[@class='cboxIframe']")]
-
         public IWebElement frame;
 
-
         [FindsBy(How = How.Id, Using = "BookCart_lvCart_imgPayment")]
-
         public IWebElement placeOrder;
 
         [FindsBy(How = How.ClassName, Using = "btn-red")]
+        public IWebElement continueButton;
 
-        public IWebElement continuebutton;
-       
-        public void ShoppingCart()
+        [FindsBy(How = How.CssSelector, Using = "#ctl00_lblUser")]
+        public IWebElement name;
+
+        public void AddToShoppingCart()
         {
             buy.Click();
             Thread.Sleep(6000);
@@ -44,7 +41,13 @@ namespace Bookswagon.Page
             placeOrder.Click();
             driver.SwitchTo().DefaultContent();
             Thread.Sleep(5000);
-            continuebutton.Click();
+            continueButton.Click();
+            Thread.Sleep(3000);
+        }
+
+        public string MailId()
+        {
+            return name.Text;
         }
 
    }

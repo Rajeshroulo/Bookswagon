@@ -14,17 +14,14 @@ namespace Bookswagon.Page
         }
 
         [FindsBy(How = How.XPath, Using = "//div[@class='search-input']//input")]
-
         public IWebElement search;
 
         [FindsBy(How = How.Id, Using = "ctl00_TopSearch1_Button1")]
-
         public IWebElement searchButton;
 
         
         [FindsBy(How = How.XPath, Using = "//div[1]//div[3]//div[1]//a[1]")]
-
-        public IWebElement wings;
+        public IWebElement wingsOfFire;
 
         public void BookSearching()
         {
@@ -36,7 +33,7 @@ namespace Bookswagon.Page
 
         public string BookTitle()
         {
-            return wings.Text;
+            return wingsOfFire.Text;
         }
 
     }

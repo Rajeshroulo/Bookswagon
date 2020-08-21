@@ -14,34 +14,27 @@ namespace Bookswagon.Page
         }
 
         [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Login')]")]
-
-        public IWebElement loginoption;
+        public IWebElement loginOption;
 
         [FindsBy(How = How.Name, Using = "ctl00$phBody$SignIn$txtEmail")]
-
         public IWebElement mail;
 
         [FindsBy(How = How.Name, Using = "ctl00$phBody$SignIn$txtPassword")]
-
-        public IWebElement bookpassword;
+        public IWebElement bookPassword;
 
         [FindsBy(How = How.Name, Using = "ctl00$phBody$SignIn$btnLogin")]
-
-        public IWebElement loginbutton;
+        public IWebElement loginButton;
 
         [FindsBy(How = How.XPath, Using = "//a[contains(text(),'TextBooks')]")]
-
         public IWebElement textBooks;
-
-
 
         public void AccountLogin(string email, string bookspassword)
         {
-            loginoption.Click();
+            loginOption.Click();
             Thread.Sleep(3000);
             mail.SendKeys(email);
-            bookpassword.SendKeys(bookspassword);
-            loginbutton.Click();
+            bookPassword.SendKeys(bookspassword);
+            loginButton.Click();
             Thread.Sleep(3000);
         }
 

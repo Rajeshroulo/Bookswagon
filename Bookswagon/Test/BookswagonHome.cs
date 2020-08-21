@@ -23,7 +23,6 @@ namespace Bookswagon.Test
         {
              var search = new BookSearch(driver);
              search.BookSearching();
-
              string text = "Wings of Fire";
              Assert.AreEqual(text, search.BookTitle());                       
         }
@@ -32,7 +31,9 @@ namespace Bookswagon.Test
         public void AddtoCart()
         {           
              var cart = new MyCart(driver);
-             cart.ShoppingCart();           
+             cart.AddToShoppingCart();
+             string mail = "Hi, rajraval017@gmail.com";
+             Assert.AreEqual(mail, cart.MailId());
         }
 
         [Test,Order(4)]
@@ -41,10 +42,9 @@ namespace Bookswagon.Test
             var address = new Address(driver);
             address.ShippingAddress();
             address.Payment();
-
             string expected = "TextBooks";
             Assert.AreEqual(expected, address.Books());
-        }
+        } 
 
     }
 }

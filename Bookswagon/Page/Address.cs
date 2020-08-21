@@ -21,50 +21,37 @@ namespace Bookswagon.Page
         }
 
         [FindsBy(How = How.Name, Using = "ctl00$cpBody$txtNewRecipientName")]
-
         public IWebElement name;
 
         [FindsBy(How = How.Id, Using = "ctl00_cpBody_txtNewCompanyName")]
-
         public IWebElement company;
 
         [FindsBy(How = How.XPath, Using = "//div[4]//div[2]//textarea[1]")]
-
         public IWebElement addres;
 
         [FindsBy(How = How.XPath, Using = "//div[6]//div[2]//div[1]//select[1]")]
-
         public IWebElement state;
 
         [FindsBy(How = How.Name, Using = "ctl00$cpBody$txtNewCity")]
-
         public IWebElement city;
 
         [FindsBy(How = How.Name, Using = "ctl00$cpBody$txtNewPincode")]
-
         public IWebElement pin;
 
         [FindsBy(How = How.XPath, Using = "//div[10]//div[2]//input[1]")]
-
         public IWebElement mobile;
 
         [FindsBy(How = How.XPath, Using = "//div[10]//div[2]//input[1]")]
-
         public IWebElement save;
 
         [FindsBy(How = How.XPath, Using = "//input[@class='btn-red']")]
-
         public IWebElement next;
 
         [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Logout')]")]
-
         public IWebElement logout;
 
         [FindsBy(How = How.XPath, Using = "//a[contains(text(),'TextBooks')]")]
-
         public IWebElement books;
-
-
 
         public void ShippingAddress()
         {
@@ -87,12 +74,11 @@ namespace Bookswagon.Page
             Thread.Sleep(6000);
             logout.Click();
             Thread.Sleep(2000);
-
         }
 
         public string Books()
         {
             return books.Text;
         }
-    }
+   }
 }

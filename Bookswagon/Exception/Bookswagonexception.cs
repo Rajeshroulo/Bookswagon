@@ -12,7 +12,7 @@ namespace Bookswagon.exception
 
         public enum ExceptionType
         {
-
+          
         }
         public ExceptionType type;
 
