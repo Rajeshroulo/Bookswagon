@@ -1,6 +1,7 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.MarkupUtils;
 using AventStack.ExtentReports.Reporter;
+using Bookswagon.Email;
 using Bookswagon.exception;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
@@ -15,6 +16,7 @@ namespace Bookswagon.Base
         ExtentTest test = null;
         public static ExtentHtmlReporter htmlReporter;
         public static ExtentReports extent = GetReport();
+        Mailing mail = new Mailing();
 
         public static log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -37,16 +39,19 @@ namespace Bookswagon.Base
         [TearDown]
         public void ExtentClose()
         {
+            var errorMessage = TestContext.CurrentContext.Result.Message;
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed)
             {
                 test.Pass(MarkupHelper.CreateLabel(TestContext.CurrentContext.Test.Name, ExtentColor.Green));
                 test.Log(Status.Pass, "Test Passed");
             }
+
             else if(TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
                 test.Pass(MarkupHelper.CreateLabel(TestContext.CurrentContext.Test.Name, ExtentColor.Red));
                 test.Log(Status.Fail, "Test Failed");
+                mail.SendMail(errorMessage, TestContext.CurrentContext.Result.StackTrace);
             }
             extent.Flush();
         }

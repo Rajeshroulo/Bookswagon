@@ -18,7 +18,7 @@ namespace Bookswagon.Test
              Assert.AreEqual("TextBooks", login.TextBooks());           
         }
 
-        [Test,Order(2)]
+    /*    [Test,Order(2)]
         public void SearchBooks()
         {
              var search = new BookSearch(driver);
@@ -44,7 +44,7 @@ namespace Bookswagon.Test
             address.Payment();
             string expected = "TextBooks";
             Assert.AreEqual(expected, address.Books());
-        } 
+        } */
 
     }
 }

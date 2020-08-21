@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using System;
 using System.Threading;
 
 namespace Bookswagon.Page
@@ -18,7 +19,6 @@ namespace Bookswagon.Page
 
         [FindsBy(How = How.Id, Using = "ctl00_TopSearch1_Button1")]
         public IWebElement searchButton;
-
         
         [FindsBy(How = How.XPath, Using = "//div[1]//div[3]//div[1]//a[1]")]
         public IWebElement wingsOfFire;

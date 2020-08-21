@@ -15,6 +15,7 @@ namespace Bookswagon.Data
         public string password;
         public string json;
         public string bookspassword;
+        public string devmail;
         public UserData()
         {
             using (StreamReader reader = new StreamReader(ConfigurationManager.AppSettings["JSON"]))
@@ -26,6 +27,7 @@ namespace Bookswagon.Data
             email = a["email"];
             password = a["password"];
             bookspassword = a["bookspassword"];
+            devmail = a["devmail"];
         }
 
     }
