@@ -43,15 +43,34 @@ namespace Bookswagon.Base
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed)
             {
-                test.Pass(MarkupHelper.CreateLabel(TestContext.CurrentContext.Test.Name, ExtentColor.Green));
-                test.Log(Status.Pass, "Test Passed");
+                try
+                {
+                    test.Pass(MarkupHelper.CreateLabel(TestContext.CurrentContext.Test.Name, ExtentColor.Green));
+                    test.Log(Status.Pass, "Test Passed");
+
+                }
+                catch (Bookswagonexception e)
+                {
+                    throw new Bookswagonexception(Bookswagonexception.ExceptionType.REPORT_NOT_GENERATED, "Reports are not generated");
+                }
+                
             }
 
             else if(TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
+                string path = Screenshots.TakePhoto(driver, TestContext.CurrentContext.Test.Name + "   " + "Failed");
+                test.AddScreenCaptureFromPath(path);
                 test.Pass(MarkupHelper.CreateLabel(TestContext.CurrentContext.Test.Name, ExtentColor.Red));
                 test.Log(Status.Fail, "Test Failed");
-                mail.SendMail(errorMessage, TestContext.CurrentContext.Result.StackTrace);
+                try
+                {
+                    mail.SendMail(errorMessage, TestContext.CurrentContext.Result.StackTrace);
+                }
+                catch(Bookswagonexception e)
+                {
+                    throw new Bookswagonexception(Bookswagonexception.ExceptionType.MAIL_NOT_SEND, e.Message);
+                }
+
             }
             extent.Flush();
         }

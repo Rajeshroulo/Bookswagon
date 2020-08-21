@@ -9,12 +9,12 @@ namespace Bookswagon.exception
    public class Bookswagonexception : Exception
    {
         public string message;
+        public ExceptionType type;
 
         public enum ExceptionType
         {
-          
+          REPORT_NOT_GENERATED,MAIL_NOT_SEND
         }
-        public ExceptionType type;
 
         public Bookswagonexception(ExceptionType type, string message) : base(message)
         {
@@ -22,5 +22,5 @@ namespace Bookswagon.exception
             this.message = message;
         }
 
-    }
+   }
 }
