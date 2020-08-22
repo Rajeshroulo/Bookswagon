@@ -1,16 +1,11 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Bookswagon.Page
 {
-   public class MyCart
-   {
+    public class MyCart
+    {
         public IWebDriver driver;
         public MyCart(IWebDriver driver)
         {
@@ -50,6 +45,6 @@ namespace Bookswagon.Page
             return name.Text;
         }
 
-   }
+    }
    
 }

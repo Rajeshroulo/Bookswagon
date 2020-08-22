@@ -453,6 +453,7 @@
   <ItemGroup>
     <Compile Include="Base\BooksWagon.cs" />
     <Compile Include="Data\UserData.cs" />
+    <Compile Include="Utility\InternetConnection.cs" />
     <Compile Include="Utility\Mailing.cs" />
     <Compile Include="Exception\Bookswagonexception.cs" />
     <Compile Include="Page\Address.cs" />
@@ -461,6 +462,7 @@
     <Compile Include="Page\MyCart.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\Report.cs" />
     <Compile Include="Utility\Screenshots.cs" />
     <Compile Include="Test\BookswagonHome.cs" />
   </ItemGroup>

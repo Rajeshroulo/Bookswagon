@@ -3,19 +3,20 @@ using AventStack.ExtentReports.MarkupUtils;
 using AventStack.ExtentReports.Reporter;
 using Bookswagon.Email;
 using Bookswagon.exception;
+using Bookswagon.Utility;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 using System.Configuration;
 
 namespace Bookswagon.Base
 {
     public class BooksWagon
     {
-        ExtentTest test = null;
-        public static ExtentHtmlReporter htmlReporter;
-        public static ExtentReports extent = GetReport();
+        public static ExtentReports extent = Report.GetReport();
+        public static ExtentTest test;
         Mailing mail = new Mailing();
 
         public static log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -27,14 +28,23 @@ namespace Bookswagon.Base
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--disable-notifications", "start-maximized");
             driver = new ChromeDriver(options);
-            driver.Url = ConfigurationManager.AppSettings["URL"];           
+            driver.Url = ConfigurationManager.AppSettings["URL"];
+           
         }
 
-        [OneTimeTearDown]
-        public void CloseBrowser()
+        [SetUp]
+        public void NetConnection()
         {
-            driver.Quit();
-        }
+            try
+            {
+                Console.WriteLine("Internet Connected =" + InternetConnectionTest.IsConnectedToInternet());
+            }
+            catch (Bookswagonexception e)
+            {
+                throw new Bookswagonexception(Bookswagonexception.ExceptionType.INTERNET_NOT_CONNECTED, "Internet connection not available");
+            }
+
+        }                
 
         [TearDown]
         public void ExtentClose()
@@ -75,13 +85,10 @@ namespace Bookswagon.Base
             extent.Flush();
         }
 
-        public static ExtentReports GetReport()
+        [OneTimeTearDown]
+        public void CloseBrowser()
         {
-            string reportPath = ConfigurationManager.AppSettings["Path"];
-            htmlReporter = new ExtentHtmlReporter(reportPath);
-            extent = new ExtentReports();
-            extent.AttachReporter(htmlReporter);
-            return extent;                      
+            driver.Quit();
         }
 
     }
