@@ -453,6 +453,9 @@
   <ItemGroup>
     <Compile Include="Base\BooksWagon.cs" />
     <Compile Include="Data\UserData.cs" />
+    <Compile Include="Page\BooksLogin.cs" />
+    <Compile Include="Page\BookswagonLogin.cs" />
+    <Compile Include="Page\SearchingBooks.cs" />
     <Compile Include="Utility\InternetConnection.cs" />
     <Compile Include="Utility\Mailing.cs" />
     <Compile Include="Exception\Bookswagonexception.cs" />

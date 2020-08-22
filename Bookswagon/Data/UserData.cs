@@ -1,16 +1,11 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bookswagon.Data
 {
-   public class UserData
-   {
+    public class UserData
+    {
         public string email;
         public string password;
         public string json;

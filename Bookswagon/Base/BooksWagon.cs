@@ -28,8 +28,7 @@ namespace Bookswagon.Base
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--disable-notifications", "start-maximized");
             driver = new ChromeDriver(options);
-            driver.Url = ConfigurationManager.AppSettings["URL"];
-           
+            driver.Url = ConfigurationManager.AppSettings["URL"];           
         }
 
         [SetUp]
@@ -72,14 +71,7 @@ namespace Bookswagon.Base
                 test.AddScreenCaptureFromPath(path);
                 test.Pass(MarkupHelper.CreateLabel(TestContext.CurrentContext.Test.Name, ExtentColor.Red));
                 test.Log(Status.Fail, "Test Failed");
-                try
-                {
-                    mail.SendMail(errorMessage, TestContext.CurrentContext.Result.StackTrace);
-                }
-                catch(Bookswagonexception e)
-                {
-                    throw new Bookswagonexception(Bookswagonexception.ExceptionType.MAIL_NOT_SEND, e.Message);
-                }
+               
 
             }
             extent.Flush();
@@ -89,6 +81,14 @@ namespace Bookswagon.Base
         public void CloseBrowser()
         {
             driver.Quit();
+            try
+            {
+                mail.SendMail("Test Results", TestContext.CurrentContext.Test.Name);
+            }
+            catch (Bookswagonexception e)
+            {
+                throw new Bookswagonexception(Bookswagonexception.ExceptionType.MAIL_NOT_SEND, e.Message);
+            }
         }
 
     }

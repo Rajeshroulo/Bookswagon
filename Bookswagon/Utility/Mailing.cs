@@ -1,17 +1,12 @@
 ﻿using Bookswagon.Data;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bookswagon.Email
 {
-   public class Mailing
-   {
+    public class Mailing
+    {
         UserData data = new UserData();
         public void SendMail(string Subject, string contentBody)
         {
@@ -31,5 +26,5 @@ namespace Bookswagon.Email
             smtp.Send(mail);
         }
 
-   }
+    }
 }

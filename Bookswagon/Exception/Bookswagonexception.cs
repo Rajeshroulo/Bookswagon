@@ -13,7 +13,7 @@ namespace Bookswagon.exception
 
         public enum ExceptionType
         {
-          REPORT_NOT_GENERATED,MAIL_NOT_SEND,INTERNET_NOT_CONNECTED
+          REPORT_NOT_GENERATED,MAIL_NOT_SEND,INTERNET_NOT_CONNECTED,INCORRECT_PASSWORD,INCORRECT_MAIL,NO_BOOK_FOUND
         }
 
         public Bookswagonexception(ExceptionType type, string message) : base(message)

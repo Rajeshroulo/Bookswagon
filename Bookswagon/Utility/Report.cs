@@ -1,16 +1,11 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bookswagon.Utility
 {
-   public  class Report
-   {
+    public  class Report
+    {
         public static ExtentReports extent;
         public static ExtentHtmlReporter htmlReporter;
 
@@ -22,5 +17,5 @@ namespace Bookswagon.Utility
             extent.AttachReporter(htmlReporter);
             return extent;
         }
-   }
+    }
 }
