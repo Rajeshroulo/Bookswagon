@@ -13,15 +13,14 @@ using System.Configuration;
 
 namespace Bookswagon.Base
 {
-    public class BooksWagon
+    public class BaseClass
     {
         public static ExtentReports extent = Report.GetReport();
         public static ExtentTest test;
         Mailing mail = new Mailing();
-
         public static log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
         public IWebDriver driver;
+
         [OneTimeSetUp]
         public void StartBrowser()
         {
@@ -42,7 +41,6 @@ namespace Bookswagon.Base
             {
                 throw new Bookswagonexception(Bookswagonexception.ExceptionType.INTERNET_NOT_CONNECTED, "Internet connection not available");
             }
-
         }                
 
         [TearDown]
@@ -56,7 +54,7 @@ namespace Bookswagon.Base
                 {
                     test.Pass(MarkupHelper.CreateLabel(TestContext.CurrentContext.Test.Name, ExtentColor.Green));
                     test.Log(Status.Pass, "Test Passed");
-
+                    log.Info("Test is Passed");
                 }
                 catch (Bookswagonexception e)
                 {
@@ -71,8 +69,7 @@ namespace Bookswagon.Base
                 test.AddScreenCaptureFromPath(path);
                 test.Pass(MarkupHelper.CreateLabel(TestContext.CurrentContext.Test.Name, ExtentColor.Red));
                 test.Log(Status.Fail, "Test Failed");
-               
-
+                log.Info("Test is Failed");
             }
             extent.Flush();
         }
@@ -90,6 +87,5 @@ namespace Bookswagon.Base
                 throw new Bookswagonexception(Bookswagonexception.ExceptionType.MAIL_NOT_SEND, e.Message);
             }
         }
-
     }
 }

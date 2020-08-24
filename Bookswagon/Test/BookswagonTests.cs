@@ -7,7 +7,7 @@ using System;
 
 namespace Bookswagon.Test
 {
-    public class BookswagonHome : BooksWagon
+    public class BookswagonTests : BaseClass
     {
         UserData data = new UserData();
         [Test,Order(1)]
@@ -31,7 +31,6 @@ namespace Bookswagon.Test
             {
                 throw new Bookswagonexception(Bookswagonexception.ExceptionType.NO_BOOK_FOUND, "Search did not match any books ");
             }
-
         }
 
         [Test,Order(3)]
@@ -89,8 +88,6 @@ namespace Bookswagon.Test
             {
                 throw new Bookswagonexception(Bookswagonexception.ExceptionType.INCORRECT_MAIL, "Mail is wrong");
             }
-
         }
-
     }
 }

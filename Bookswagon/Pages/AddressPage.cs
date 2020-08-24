@@ -1,18 +1,13 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Bookswagon.Page
 {
-   public class Address
-   {
+    public class Address
+    {
         public IWebDriver driver;
         public Address(IWebDriver driver)
         {
@@ -80,5 +75,5 @@ namespace Bookswagon.Page
         {
             return books.Text;
         }
-   }
+    }
 }

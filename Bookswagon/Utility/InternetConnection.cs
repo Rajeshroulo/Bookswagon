@@ -6,6 +6,7 @@ namespace Bookswagon.Utility
 {
     public static class InternetConnectionTest
     {
+        //Creating the extern function... 
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
         //Creating a function that uses the API function...  
@@ -14,6 +15,5 @@ namespace Bookswagon.Utility
             int Desc;
             return InternetGetConnectedState(out Desc, 0);
         }
-
     }
 }

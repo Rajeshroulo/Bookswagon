@@ -25,6 +25,5 @@ namespace Bookswagon.Email
             smtp.EnableSsl = true;
             smtp.Send(mail);
         }
-
     }
 }

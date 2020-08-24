@@ -1,14 +1,13 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
 using System.Threading;
 
 namespace Bookswagon.Page
 {
-    public class BookSearch
+    public class SearchingBooks
     {
         public IWebDriver driver;
-        public BookSearch(IWebDriver driver)
+        public SearchingBooks(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
@@ -19,22 +18,13 @@ namespace Bookswagon.Page
 
         [FindsBy(How = How.Id, Using = "ctl00_TopSearch1_Button1")]
         public IWebElement searchButton;
-        
-        [FindsBy(How = How.XPath, Using = "//div[1]//div[3]//div[1]//a[1]")]
-        public IWebElement wingsOfFire;
 
-        public void BookSearching()
+        public void FindBook()
         {
             Thread.Sleep(2000);
-            search.SendKeys("Wings of fire");
+            search.SendKeys("nfg");
             searchButton.Click();
             Thread.Sleep(3000);
-        } 
-
-        public string BookTitle()
-        {
-            return wingsOfFire.Text;
         }
-
     }
 }

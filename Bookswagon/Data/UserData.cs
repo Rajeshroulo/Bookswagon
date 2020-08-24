@@ -24,6 +24,5 @@ namespace Bookswagon.Data
             bookspassword = a["bookspassword"];
             devmail = a["devmail"];
         }
-
     }
 }
