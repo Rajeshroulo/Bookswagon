@@ -76,7 +76,7 @@ namespace Bookswagon.Test
         }
 
         [Test,Order(7)]
-        public void Logins()
+        public void UserLogin()
         {
             try
             {
