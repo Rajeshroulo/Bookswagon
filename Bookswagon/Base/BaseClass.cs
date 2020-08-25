@@ -2,7 +2,7 @@
 using AventStack.ExtentReports.MarkupUtils;
 using AventStack.ExtentReports.Reporter;
 using Bookswagon.Email;
-using Bookswagon.exception;
+using Bookswagon.Exceptions;
 using Bookswagon.Utility;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
@@ -37,9 +37,9 @@ namespace Bookswagon.Base
             {
                 Console.WriteLine("Internet Connected =" + InternetConnectionTest.IsConnectedToInternet());
             }
-            catch (Bookswagonexception e)
+            catch (BookswagonException e)
             {
-                throw new Bookswagonexception(Bookswagonexception.ExceptionType.INTERNET_NOT_CONNECTED, "Internet connection not available");
+                throw new BookswagonException(BookswagonException.ExceptionType.INTERNET_NOT_CONNECTED, "Internet connection not available");
             }
         }                
 
@@ -56,9 +56,9 @@ namespace Bookswagon.Base
                     test.Log(Status.Pass, "Test Passed");
                     log.Info("Test is Passed");
                 }
-                catch (Bookswagonexception e)
+                catch (BookswagonException e)
                 {
-                    throw new Bookswagonexception(Bookswagonexception.ExceptionType.REPORT_NOT_GENERATED, "Reports are not generated");
+                    throw new BookswagonException(BookswagonException.ExceptionType.REPORT_NOT_GENERATED, "Reports are not generated");
                 }
                 
             }
@@ -82,9 +82,9 @@ namespace Bookswagon.Base
             {
                 mail.SendMail("Test Results", TestContext.CurrentContext.Test.Name);
             }
-            catch (Bookswagonexception e)
+            catch (BookswagonException e)
             {
-                throw new Bookswagonexception(Bookswagonexception.ExceptionType.MAIL_NOT_SEND, e.Message);
+                throw new BookswagonException(BookswagonException.ExceptionType.MAIL_NOT_SEND, e.Message);
             }
         }
     }

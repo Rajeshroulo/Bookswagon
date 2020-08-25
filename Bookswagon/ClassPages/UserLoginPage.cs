@@ -4,10 +4,10 @@ using System.Threading;
 
 namespace Bookswagon.Page
 {
-    public class BooksLogin
+    public class UserLoginPage
     {
         public IWebDriver driver;
-        public BooksLogin(IWebDriver driver)
+        public UserLoginPage(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);

@@ -6,10 +6,10 @@ using System.Threading;
 
 namespace Bookswagon.Page
 {
-    public class Address
+    public class AddressPage
     {
         public IWebDriver driver;
-        public Address(IWebDriver driver)
+        public AddressPage(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);

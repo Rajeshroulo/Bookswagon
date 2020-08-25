@@ -1,6 +1,6 @@
 ﻿using Bookswagon.Base;
 using Bookswagon.Data;
-using Bookswagon.exception;
+using Bookswagon.Exceptions;
 using Bookswagon.Page;
 using NUnit.Framework;
 using System;
@@ -13,9 +13,8 @@ namespace Bookswagon.Test
         [Test,Order(1)]
         public void BookswagonLogin()
         {           
-             var login = new Login(driver);
+             var login = new LoginPage(driver);
              login.AccountLogin(data.email, data.bookspassword);
-
              Assert.AreEqual("TextBooks", login.TextBooks());             
         }
 
@@ -24,19 +23,19 @@ namespace Bookswagon.Test
         {
             try
             {
-                var search = new SearchingBooks(driver);
+                var search = new SearchingBooksPage(driver);
                 search.FindBook();
             }
-            catch (Bookswagonexception e)
+            catch (BookswagonException e)
             {
-                throw new Bookswagonexception(Bookswagonexception.ExceptionType.NO_BOOK_FOUND, "Search did not match any books ");
+                throw new BookswagonException(BookswagonException.ExceptionType.NO_BOOK_FOUND, "Search did not match any books ");
             }
         }
 
         [Test,Order(3)]
         public void SearchBooks()
         {
-             var search = new BookSearch(driver);
+             var search = new BookSearchPage(driver);
              search.BookSearching();
              string text = "Wings of Fire";
              Assert.AreEqual(text, search.BookTitle());                       
@@ -45,7 +44,7 @@ namespace Bookswagon.Test
         [Test,Order(4)]
         public void AddtoCart()
         {           
-             var cart = new MyCart(driver);
+             var cart = new MyCartPage(driver);
              cart.AddToShoppingCart();
              string mail = "Hi, rajraval017@gmail.com";
              Assert.AreEqual(mail, cart.MailId());
@@ -54,7 +53,7 @@ namespace Bookswagon.Test
         [Test,Order(5)]
         public void DeliveryAddress()
         {
-            var address = new Address(driver);
+            var address = new AddressPage(driver);
             address.ShippingAddress();
             address.Payment();
             string expected = "TextBooks";
@@ -66,12 +65,12 @@ namespace Bookswagon.Test
         {
             try
             {
-                var login = new BookswagonLogin(driver);
+                var login = new BookswagonLoginPage(driver);
                 login.LoginAccount();
             }
-            catch(Bookswagonexception e)
+            catch(BookswagonException e)
             {
-                throw new Bookswagonexception(Bookswagonexception.ExceptionType.INCORRECT_PASSWORD, "Password is wrong");
+                throw new BookswagonException(BookswagonException.ExceptionType.INCORRECT_PASSWORD, "Password is wrong");
             }
             
         }
@@ -81,12 +80,12 @@ namespace Bookswagon.Test
         {
             try
             {
-                var login = new BooksLogin(driver);
+                var login = new UserLoginPage(driver);
                 login.Login();
             }
-            catch (Bookswagonexception e)
+            catch (BookswagonException e)
             {
-                throw new Bookswagonexception(Bookswagonexception.ExceptionType.INCORRECT_MAIL, "Mail is wrong");
+                throw new BookswagonException(BookswagonException.ExceptionType.INCORRECT_MAIL, "Mail is wrong");
             }
         }
     }

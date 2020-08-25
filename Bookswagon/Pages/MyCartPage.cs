@@ -4,10 +4,10 @@ using System.Threading;
 
 namespace Bookswagon.Page
 {
-    public class MyCart
+    public class MyCartPage
     {
         public IWebDriver driver;
-        public MyCart(IWebDriver driver)
+        public MyCartPage(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
@@ -44,6 +44,5 @@ namespace Bookswagon.Page
         {
             return name.Text;
         }
-    }
-   
+    }   
 }
