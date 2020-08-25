@@ -30,14 +30,14 @@ namespace Bookswagon.Test
             {
                 throw new BookswagonException(BookswagonException.ExceptionType.NO_BOOK_FOUND, "Search did not match any books ");
             }
-        }
+        } 
 
         [Test,Order(3)]
         public void SearchBooks()
         {
              var search = new BookSearchPage(driver);
              search.BookSearching();
-             string text = "Wings of Fire";
+             string text = "Wings of Fire #02: The Lost Heir";
              Assert.AreEqual(text, search.BookTitle());                       
         }
 
@@ -87,6 +87,6 @@ namespace Bookswagon.Test
             {
                 throw new BookswagonException(BookswagonException.ExceptionType.INCORRECT_MAIL, "Mail is wrong");
             }
-        }
+        } 
     }
 }

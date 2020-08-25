@@ -13,7 +13,7 @@ namespace Bookswagon.Page
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.XPath, Using = "//div[1]//div[4]//div[5]//a[1]//input[1]")]
+        [FindsBy(How = How.XPath, Using = "//td[1]//div[1]//a[1]//input[1]")]
         public IWebElement buy;
 
         [FindsBy(How = How.XPath, Using = "//iframe[@class='cboxIframe']")]

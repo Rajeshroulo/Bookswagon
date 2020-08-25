@@ -66,7 +66,7 @@ namespace Bookswagon.Page
         public void Payment()
         {
             next.Click();
-            Thread.Sleep(6000);
+            Thread.Sleep(4000);
             logout.Click();
             Thread.Sleep(2000);
         }

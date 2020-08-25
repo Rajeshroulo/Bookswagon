@@ -35,7 +35,7 @@ namespace Bookswagon.Page
             mail.SendKeys(email);
             bookPassword.SendKeys(bookspassword);
             loginButton.Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
         }
 
         public string TextBooks()
