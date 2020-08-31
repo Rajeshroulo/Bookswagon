@@ -18,11 +18,9 @@
  #### Framework
 * .Net Framework
 
-* Nunit
+* Hybrid Framework(Nunit and  Data Driven)
 
 * Selenium
-
-* Data Driven
  
  ## Design Pattern
  Page Object Model
