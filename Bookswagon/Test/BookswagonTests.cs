@@ -37,7 +37,7 @@ namespace Bookswagon.Test
         {
              var search = new BookSearchPage(driver);
              search.BookSearching();
-             string text = "Wings of Fire #02: The Lost Heir";
+             string text = "Wings of Fire #06: Moon Rising";
              Assert.AreEqual(text, search.BookTitle());                       
         }
 

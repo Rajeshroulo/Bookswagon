@@ -31,7 +31,7 @@ namespace Bookswagon.Page
         public void AddToShoppingCart()
         {
             buy.Click();
-            Thread.Sleep(6000);
+            Thread.Sleep(8000);
             driver.SwitchTo().Frame(frame);
             placeOrder.Click();
             driver.SwitchTo().DefaultContent();
